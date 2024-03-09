@@ -25,6 +25,14 @@ public class LinearProbingHashMapTest {
     /** Map to test with randomization */
     private Map<Integer, String> prodMap;
     
+    // 'Production' Map (with randomization) to check correctness of ADT behaviors
+    /** Map to test with randomization again. */
+    private Map<Integer, String> testMap2;
+    
+    // 'Production' Map (with randomization) to check correctness of ADT behaviors
+    /** Map to test with randomization again. */
+    private Map<Integer, String> testMap3;
+    
 
     /**
      * Create a new instance of a linear probing hash map before each test case executes
@@ -46,6 +54,9 @@ public class LinearProbingHashMapTest {
         // etc.
         testMap = new LinearProbingHashMap<Integer, String>(7, true);
         prodMap = new LinearProbingHashMap<Integer, String>();
+        testMap2 = new LinearProbingHashMap<Integer, String>(1);
+        testMap3 = new LinearProbingHashMap<Integer, String>(true);
+
     }
     
     /**
@@ -57,6 +68,10 @@ public class LinearProbingHashMapTest {
         assertTrue(testMap.isEmpty());
         assertNull(testMap.put(1, "one"));
         assertNull(testMap.put(2, "two"));
+        assertNull(testMap2.put(2, "two"));
+        assertNull(testMap3.put(2, "two"));
+        assertNull(testMap2.put(1, "one"));
+        
         
         
         Iterator<Map.Entry<Integer, String>> iterator = testMap.entrySet().iterator();
