@@ -25,10 +25,6 @@ public class LinearProbingHashMapTest {
     /** Map to test with randomization */
     private Map<Integer, String> prodMap;
     
-    /** Map to test with randomization */
-    private Map<Integer, String> newTestMap;
-    /** Map to test with randomization */
-    private Map<Integer, String> idealTestMap;
 
     /**
      * Create a new instance of a linear probing hash map before each test case executes
@@ -50,8 +46,6 @@ public class LinearProbingHashMapTest {
         // etc.
         testMap = new LinearProbingHashMap<Integer, String>(7, true);
         prodMap = new LinearProbingHashMap<Integer, String>();
-        newTestMap = new LinearProbingHashMap<Integer, String>(5);
-        idealTestMap = new LinearProbingHashMap<Integer, String>(false);
     }
     
     /**

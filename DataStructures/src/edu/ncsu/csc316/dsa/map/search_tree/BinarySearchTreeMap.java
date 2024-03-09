@@ -3,8 +3,6 @@ package edu.ncsu.csc316.dsa.map.search_tree;
 import java.util.Comparator;
 import edu.ncsu.csc316.dsa.Position;
 import edu.ncsu.csc316.dsa.map.AbstractOrderedMap;
-import edu.ncsu.csc316.dsa.map.Map.Entry;
-import edu.ncsu.csc316.dsa.tree.BinaryTree;
 import edu.ncsu.csc316.dsa.tree.LinkedBinaryTree;
 
 /**

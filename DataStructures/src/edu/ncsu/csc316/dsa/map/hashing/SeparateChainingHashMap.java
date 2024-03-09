@@ -1,7 +1,5 @@
 package edu.ncsu.csc316.dsa.map.hashing;
 
-import edu.ncsu.csc316.dsa.list.List;
-import edu.ncsu.csc316.dsa.list.SinglyLinkedList;
 import edu.ncsu.csc316.dsa.map.Map;
 import edu.ncsu.csc316.dsa.map.search_tree.AVLTreeMap;
 

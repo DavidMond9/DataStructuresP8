@@ -1,6 +1,5 @@
 package edu.ncsu.csc316.dsa.map.hashing;
 
-import edu.ncsu.csc316.dsa.list.ArrayBasedList;
 import edu.ncsu.csc316.dsa.map.Map;
 
 /**

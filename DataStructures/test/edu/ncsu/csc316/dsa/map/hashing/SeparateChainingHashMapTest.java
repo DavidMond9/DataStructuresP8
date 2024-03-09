@@ -20,8 +20,6 @@ public class SeparateChainingHashMapTest {
     // 'Testing' Map used (no randomization) to check ordering of contents
     private Map<Integer, String> testMap;
     
-    // 'Production' Map (with randomization) to check correctness of ADT behaviors
-    private Map<Integer, String> prodMap;
     
     /**
      * Create a new instance of a separate chaining hash map before each test case executes
@@ -45,7 +43,6 @@ public class SeparateChainingHashMapTest {
         // tree, which means the entries should be sorted in order within
         // that tree
         testMap = new SeparateChainingHashMap<Integer, String>(7, true);
-        prodMap = new SeparateChainingHashMap<Integer, String>();
     }
     
     /**
