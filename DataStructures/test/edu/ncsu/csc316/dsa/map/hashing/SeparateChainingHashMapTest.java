@@ -20,6 +20,9 @@ public class SeparateChainingHashMapTest {
     // 'Testing' Map used (no randomization) to check ordering of contents
     private Map<Integer, String> testMap;
     
+    private Map<Integer, String> testMap2;
+    private Map<Integer, String> testMap3;
+
     
     /**
      * Create a new instance of a separate chaining hash map before each test case executes
@@ -43,6 +46,11 @@ public class SeparateChainingHashMapTest {
         // tree, which means the entries should be sorted in order within
         // that tree
         testMap = new SeparateChainingHashMap<Integer, String>(7, true);
+        testMap2 = new SeparateChainingHashMap<Integer, String>(4);
+        testMap3 = new SeparateChainingHashMap<Integer, String>();
+
+
+        
     }
     
     /**
@@ -53,6 +61,9 @@ public class SeparateChainingHashMapTest {
         assertEquals(0, testMap.size());
         assertTrue(testMap.isEmpty());
         assertNull(testMap.put(3, "string3"));
+        assertNull(testMap2.put(2, "string2"));
+        assertNull(testMap3.put(1, "string1"));
+        assertNull(testMap2.put(4, "string4"));
 
         // Since our entrySet method returns the entries in the table
         // from left to right, we can use the entrySet to check
