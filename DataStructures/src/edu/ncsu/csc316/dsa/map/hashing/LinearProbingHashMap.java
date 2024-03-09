@@ -109,7 +109,7 @@ public class LinearProbingHashMap<K, V> extends AbstractHashMap<K, V> {
     	int j = findBucket(hash, key);
         if(j >= 0) {
         	V oldVal = table[j].getValue();
-        	table[j].setValue(value);;
+        	table[j].setValue(value);
         	return oldVal;
         }
         table[-(j + 1)] = new TableEntry<>(key, value);
