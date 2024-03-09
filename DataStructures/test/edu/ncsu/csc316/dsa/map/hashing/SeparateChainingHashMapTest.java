@@ -62,7 +62,7 @@ public class SeparateChainingHashMapTest {
         // that our values are in the correct order in the hash table.
         // Alternatively, you could implement a toString() method if you
         // want to check that the exact index/map of each bucket is correct
-        Iterator<Map.Entry<Integer,String>> it = testMap.entrySet().iterator();
+        Iterator<Map.Entry<Integer, String>> it = testMap.entrySet().iterator();
         assertEquals(3, (int)it.next().getKey()); // should be in a map in index 4
         
         
@@ -73,15 +73,7 @@ public class SeparateChainingHashMapTest {
         assertEquals(3, (int)it.next().getKey()); // should be in a map in index 4
         assertEquals(4, (int)it.next().getKey()); // should be in a map in index 5
         
-        //TODO: complete this test case
-        // You should create some collisions to check that entries
-        // are placed in the correct buckets.
-        //
-        // You should also use the prodMap to check that put works
-        // as expected when randomization is used internally. You can't
-        // check the placement of entries within the hash table,
-        // but you can still check that put gives the correct outputs when
-        // randomization is used internally.
+
     }
     
     /**
@@ -90,10 +82,8 @@ public class SeparateChainingHashMapTest {
     @Test
     public void testGet() {
         assertTrue(testMap.isEmpty());
-        //TODO: complete this test case
-        //
-        // You should also use the prodMap to check that get works
-        // as expected when randomization is used internally.
+        assertNull(testMap.put(1, "one"));
+        assertEquals(testMap.get(1), "one");
     }
     
     /**
@@ -102,13 +92,8 @@ public class SeparateChainingHashMapTest {
     @Test
     public void testRemove() {
         assertTrue(testMap.isEmpty());
-        //TODO: complete this test case
-        //
-        // You should also use the prodMap to check that remove works
-        // as expected when randomization is used internally. You can't
-        // check the placement of entries within the hash table,
-        // but you can still check that remove gives the correct outputs when
-        // randomization is used internally.        
+        assertNull(testMap.put(1, "one"));
+        assertEquals(testMap.remove(1), "one");
     }
     
     /**
@@ -116,10 +101,11 @@ public class SeparateChainingHashMapTest {
      */   
     @Test
     public void testIterator() {
-        // TODO: add some entries to the hash map
+    	assertNull(testMap.put(1, "one"));
+    	assertNull(testMap.put(2, "two"));
         
         Iterator<Integer> it = testMap.iterator();
-        //TODO: complete this test case
+        assertEquals((int) it.next(), 1);
     }
     
     /**
@@ -127,10 +113,13 @@ public class SeparateChainingHashMapTest {
      */   
     @Test
     public void testEntrySet() {
-        // TODO: Add some entries to the hash map
+    	assertNull(testMap.put(1, "one"));
+    	assertNull(testMap.put(2, "two"));
         
-        Iterator<Map.Entry<Integer, String>> it = testMap.entrySet().iterator();        
-        //TODO: complete this test case
+        Iterator<Map.Entry<Integer, String>> it = testMap.entrySet().iterator(); 
+        assertEquals((int) it.next().getKey(), 1);
+        
+
     }
     
     /**
@@ -138,9 +127,10 @@ public class SeparateChainingHashMapTest {
      */   
     @Test
     public void testValues() {
-        // TODO: add some entries to the hash map
+    	assertNull(testMap.put(1, "one"));
+    	assertNull(testMap.put(2, "two"));
         
         Iterator<String> it = testMap.values().iterator();
-        //TODO: complete this test case
+        assertEquals(it.next(), "one");
     }
 }

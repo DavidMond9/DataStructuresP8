@@ -36,7 +36,7 @@ public class LinearProbingHashMap<K, V> extends AbstractHashMap<K, V> {
      * {@link AbstractHashMap#DEFAULT_CAPACITY}
      */
     public LinearProbingHashMap() {
-        this(AbstractHashMap.DEFAULT_CAPACITY);
+        this(AbstractHashMap.DEFAULT_CAPACITY, false);
     }
 
     /**
@@ -62,6 +62,16 @@ public class LinearProbingHashMap<K, V> extends AbstractHashMap<K, V> {
     public LinearProbingHashMap(int capacity, boolean isTesting) {
         super(capacity, isTesting);
         size = 0;
+    }
+    /**
+     * FOR TESTING PURPOSES ONLY! Constructs a new linear probing hash map that uses
+     * natural ordering of keys when performing comparisons. The created hash table
+     * is initialized to have the provided capacity.
+     * @param isTesting if true, the hash table uses a predictable series of random
+     *                  values for deterministic and repeatable testing
+     */
+    public LinearProbingHashMap(boolean isTesting) {
+    	this(AbstractHashMap.DEFAULT_CAPACITY, isTesting);
     }
 
     @Override

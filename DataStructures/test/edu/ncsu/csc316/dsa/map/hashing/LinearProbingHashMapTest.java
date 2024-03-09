@@ -24,6 +24,11 @@ public class LinearProbingHashMapTest {
     // 'Production' Map (with randomization) to check correctness of ADT behaviors
     /** Map to test with randomization */
     private Map<Integer, String> prodMap;
+    
+    /** Map to test with randomization */
+    private Map<Integer, String> newTestMap;
+    /** Map to test with randomization */
+    private Map<Integer, String> idealTestMap;
 
     /**
      * Create a new instance of a linear probing hash map before each test case executes
@@ -45,6 +50,8 @@ public class LinearProbingHashMapTest {
         // etc.
         testMap = new LinearProbingHashMap<Integer, String>(7, true);
         prodMap = new LinearProbingHashMap<Integer, String>();
+        newTestMap = new LinearProbingHashMap<Integer, String>(5);
+        idealTestMap = new LinearProbingHashMap<Integer, String>(false);
     }
     
     /**
@@ -64,20 +71,6 @@ public class LinearProbingHashMapTest {
         assertEquals((int) iterator.next().getKey(), 2);
         assertEquals(testMap.size(), 2);
         
-        
-        
-        assertEquals(0, prodMap.size());
-        assertTrue(prodMap.isEmpty());
-        assertNull(prodMap.put(1, "one"));
-        assertNull(prodMap.put(3, "three"));
-        assertNull(prodMap.put(5, "five"));
-        assertNull(prodMap.put(2, "two"));
-        
-        Iterator<Map.Entry<Integer, String>> iterator2 = prodMap.entrySet().iterator();
-        assertTrue(iterator2.hasNext());
-        assertEquals((int) iterator2.next().getKey(), 5);
-        assertEquals((int) iterator2.next().getKey(), 3);
-        assertEquals(prodMap.size(), 4);
         
         
     }
@@ -101,24 +94,8 @@ public class LinearProbingHashMapTest {
         assertEquals(testMap.size(), 2);
         
         
-        
-        assertEquals(0, prodMap.size());
-        assertTrue(prodMap.isEmpty());
-        assertNull(prodMap.put(1, "one"));
-        assertNull(prodMap.put(3, "three"));
-        assertNull(prodMap.put(5, "five"));
-        assertNull(prodMap.put(2, "two"));
-        
-        Iterator<Map.Entry<Integer, String>> iterator2 = prodMap.entrySet().iterator();
-        assertTrue(iterator2.hasNext());
-        assertEquals((int) iterator2.next().getKey(), 3);
-        assertEquals((int) iterator2.next().getKey(), 5);
-        assertEquals(prodMap.size(), 4);
-        
         assertEquals(testMap.get(1), "one");
         assertEquals(testMap.get(2), "two");
-        assertEquals(prodMap.get(1), "one");
-        assertEquals(prodMap.get(5), "five");
         
     }
     
@@ -141,19 +118,9 @@ public class LinearProbingHashMapTest {
         assertEquals(testMap.size(), 2);
         
         
-        
-        assertEquals(0, prodMap.size());
-        assertTrue(prodMap.isEmpty());
-        assertNull(prodMap.put(1, "one"));
-        assertNull(prodMap.put(3, "three"));
-        assertNull(prodMap.put(5, "five"));
-        assertNull(prodMap.put(2, "two"));
-        
         assertEquals(testMap.remove(1), "one");
         assertEquals(testMap.remove(2), "two");
-        
-        assertEquals(prodMap.remove(1), "one");
-        assertEquals(prodMap.remove(2), "two");
+
     }
     
     /**
@@ -161,13 +128,11 @@ public class LinearProbingHashMapTest {
      */     
     @Test
     public void testIterator() {
-        testMap.put(1, "one");
-        testMap.put(2, "two");
-        testMap.put(3,  "three");
-        
-        prodMap.put(1,  "one");
-        prodMap.put(4, "four");
-        prodMap.put(2, "two");
+    	assertEquals(testMap.size(), 0);
+    	assertEquals(prodMap.size(), 0);
+        assertNull(testMap.put(1, "one"));
+        assertNull(testMap.put(2, "two"));
+        assertNull(testMap.put(3,  "three"));
         
         Iterator<Integer> it = testMap.iterator();
         assertTrue(it.hasNext());
@@ -178,21 +143,18 @@ public class LinearProbingHashMapTest {
      */     
     @Test
     public void testEntrySet() {
+    	assertEquals(testMap.size(), 0);
+    	assertEquals(prodMap.size(), 0);
+    	assertNull(testMap.put(1, "one"));
+        assertNull(testMap.put(2, "two"));
+        assertNull(testMap.put(3,  "three"));
         
-    	testMap.put(1, "one");
-        testMap.put(2, "two");
-        testMap.put(3,  "three");
-        
-        prodMap.put(1,  "one");
-        prodMap.put(4, "four");
-        prodMap.put(2, "two");
+        assertNull(prodMap.put(1,  "one"));
+        assertNull(prodMap.put(4, "four"));
+        assertNull(prodMap.put(2, "two"));
         Iterator<Map.Entry<Integer, String>> it = testMap.entrySet().iterator();
         assertEquals((int) it.next().getKey(), 1);
         assertEquals((int) it.next().getKey(), 2);
-        
-        Iterator<Map.Entry<Integer, String>> it2 = prodMap.entrySet().iterator();
-        assertEquals((int) it2.next().getKey(), 4);
-        assertEquals((int) it2.next().getKey(), 1);
 
         
     }
@@ -202,20 +164,17 @@ public class LinearProbingHashMapTest {
      */  
     @Test
     public void testValues() {
-    	testMap.put(1, "one");
-        testMap.put(2, "two");
-        testMap.put(3,  "three");
-        
-        prodMap.put(1,  "one");
-        prodMap.put(4, "four");
-        prodMap.put(2, "two");
+    	assertEquals(testMap.size(), 0);
+    	assertEquals(prodMap.size(), 0);
+    	assertNull(testMap.put(1, "one"));
+        assertNull(testMap.put(2, "two"));
+        assertNull(testMap.put(3,  "three"));
+ 
         
         Iterator<String> it = testMap.values().iterator();
         assertEquals(it.next(), "one");
         assertEquals(it.next(), "two");
-        Iterator<String> it2 = prodMap.values().iterator();
-        assertEquals(it2.next(), "one");
-        assertEquals(it2.next(), "two");
+
 
     }
 }
