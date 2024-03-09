@@ -46,6 +46,7 @@ public class BinarySearchTreeMap<K extends Comparable<K>, V> extends AbstractOrd
     /**
      * Constructs a new binary search tree map that uses a provided
      * {@link Comparator} when performing comparisons of keys within the tree
+     * @param compare compares the map to keys
      */
     public BinarySearchTreeMap(Comparator<K> compare) {
         super(compare);

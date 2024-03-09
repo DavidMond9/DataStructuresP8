@@ -43,6 +43,7 @@ public class AVLTreeMap<K extends Comparable<K>, V> extends BinarySearchTreeMap<
     /**
      * Constructs a new AVL tree map that uses a provided {@link Comparator} when
      * performing comparisons of keys within the tree
+     * @param compare compares the map to comparator.
      */
     public AVLTreeMap(Comparator<K> compare) {
         super(compare);

@@ -42,6 +42,7 @@ public class SplayTreeMap<K extends Comparable<K>, V> extends BinarySearchTreeMa
     /**
      * Constructs a new Splay tree map that uses a provided {@link Comparator} when
      * performing comparisons of keys within the tree
+     * @param compare compares the map to diff tree
      */
     public SplayTreeMap(Comparator<K> compare) {
         super(compare);
